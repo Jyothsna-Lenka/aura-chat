@@ -49,7 +49,10 @@ export function ThreadItem({ item, active, query, onRename, onDelete, onNavigate
           onChange={(e) => setTitle(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === 'Enter') save();
-            if (e.key === 'Escape') (setTitle(item.title), setEditing(false));
+            if (e.key === 'Escape') {
+              setTitle(item.title);
+              setEditing(false);
+            }
           }}
           aria-label="Conversation title"
           className="min-w-0 flex-1 bg-transparent text-sm outline-none"

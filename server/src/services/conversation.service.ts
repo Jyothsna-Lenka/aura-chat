@@ -91,7 +91,7 @@ export async function getConversation(id: string) {
 }
 
 export async function renameConversation(id: string, title: string) {
-  const doc = await ConversationModel.findByIdAndUpdate(id, { title }, { new: true });
+  const doc = await ConversationModel.findByIdAndUpdate(id, { title }, { returnDocument: 'after' });
   if (!doc) throw new AppError('Conversation not found', 404, 'NOT_FOUND');
   return serialize(doc);
 }
